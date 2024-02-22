@@ -75,6 +75,7 @@ main{
     display: flex;
     text-align: justify;
     align-items: center;
+    justify-content: center;
     padding: 0rem 2rem;
     gap: 2rem;
 }
@@ -129,3 +130,44 @@ main{
 #submit-btn:hover{
     opacity: .7;
 }
+
+.ls-en{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.suggests{
+    width: 30vw;
+}
+
+.card-arena{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: .4rem;
+}
+
+.card-arena li{
+    padding: 1rem;
+    background-color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all ease-in-out 500ms;
+
+    cursor: pointer ;
+}
+
+ .open-img{
+    opacity: 0;
+    transition: all ease-in-out 500ms;
+    transform: translateY(2rem);
+}
+
+.card-arena li:hover .open-img{
+    opacity: 1;
+    transform: translateY(0rem);
+}
+
