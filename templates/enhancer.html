@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neocode</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+  />
   </head>
   <body>
     <nav>
@@ -30,7 +33,7 @@
         </form>
       </div>
       <div class="arena">
-        <div class="ls l">
+        <div class="ls">
           <h2>Code Submitted</h2>
           <div class="code">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
@@ -41,13 +44,20 @@
             expedita!
           </div>
         </div>
-        <div class="rs">
-          <div class="circle">
-            <div class="complexity">O(nlogn)</div>
+        <div class="ls ls-en">
+          <h2>Enhanced Code</h2>
+          <div class="code">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+            ducimus eos corrupti? Est neque aliquid, praesentium pariatur
+            explicabo consectetur sunt, repudiandae provident incidunt culpa
+            quod sed quas dignissimos modi tempora, animi ipsa delectus odio
+            inventore unde quidem ipsum soluta. Eius quae rem unde nulla
+            expedita!
           </div>
         </div>
       </div>
     </main>
+
     <script src="./script.js"></script>
   </body>
 </html>

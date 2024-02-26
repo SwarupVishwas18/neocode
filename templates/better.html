@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neocode</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
     <nav>
@@ -24,7 +27,7 @@
 
     <main>
       <div class="file-upload">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           <input type="file" name="file" id="file" />
           <input type="submit" value="Submit" id="submit-btn" />
         </form>
@@ -33,16 +36,28 @@
         <div class="ls">
           <h2>Code Submitted</h2>
           <div class="code">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-            ducimus eos corrupti? Est neque aliquid, praesentium pariatur
-            explicabo consectetur sunt, repudiandae provident incidunt culpa
-            quod sed quas dignissimos modi tempora, animi ipsa delectus odio
-            inventore unde quidem ipsum soluta. Eius quae rem unde nulla
-            expedita!
+            <pre>
+              <code class="language-python">
+{% for line in code %}
+{{ line }} 
+{% endfor %}
+</code>
+          </pre>
           </div>
         </div>
         <div class="ls">
-          <h2>Alternative Codes</h2>
+          <h2>Algorithm Name</h2>
+          <div class="suggests">
+            <ul class="card-arena">
+              <li>
+                {{ code_name }}
+
+                <div class="open-img">
+                  <img src="./img/share.png" height="20px" alt="" />
+                </div>
+              </li>
+            </ul>
+          </div>
           <div class="suggests">
             <ul class="card-arena">
               <li>
