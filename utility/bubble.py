@@ -20,8 +20,6 @@ def bubbleSort(arr):
         if swapped == False:
             break
 
-
-# Driver code to test above
 if __name__ == "__main__":
     arr = [64, 34, 25, 12, 22, 11, 90]
 
@@ -31,4 +29,3 @@ if __name__ == "__main__":
     for i in range(len(arr)):
         print("%d" % arr[i], end=" ")
 
-# This code is modified by Suraj krushna Yadav

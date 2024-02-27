@@ -16,13 +16,10 @@ model = genai.GenerativeModel(
 )
 
 
-def findAlgo(data):
-    print("Taken")
+def fa(data):
 
     # model = genai.GenerativeModel("gemini-pro")
-    print(model)
     prompt = data + " Give me Algorithm Name used in above code"
-    print(prompt)
     try:
         response = model.generate_content(prompt, stream=False)
     except:
@@ -31,7 +28,7 @@ def findAlgo(data):
     for chuck in response:
         str += chuck.text
 
-    print(str)
+    # print(str)
 
     return str
 
@@ -63,6 +60,6 @@ while True:
     # proc.displayProcesses()
 """
 
-with open(sys.argv[1]) as f:
-    text = f.read()
-    print(findAlgo(text))
+# with open(sys.argv[1]) as f:
+#     text = f.read()
+#     print(fa(text))
