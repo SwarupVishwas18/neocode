@@ -1,30 +1,18 @@
 import pathlib
 import textwrap
 import google.generativeai as genai
+import sys
 
 
 user_data = "AIzaSyBAESdw0y1QQancJ7Bb9ICpc-rUxi2cHrY"
 GOOGLE_API_KEY = user_data
 genai.configure(api_key=GOOGLE_API_KEY)
-config = {"temperature": 0, "top_k": 20, "top_p": 0.9, "max_output_tokens": 500}
 
-safety_settings = [
-    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-    {
-        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
-    },
-    {
-        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
-    },
-]
+print(sys.argv)
+
 
 model = genai.GenerativeModel(
     model_name="gemini-pro",
-    generation_config=config,
-    safety_settings=safety_settings,
 )
 
 
@@ -35,10 +23,15 @@ def findAlgo(data):
     print(model)
     prompt = data + " Give me Algorithm Name used in above code"
     print(prompt)
-    response = model.generate_content(prompt, stream=False)
+    try:
+        response = model.generate_content(prompt, stream=False)
+    except:
+        return "Error Occured"
     str = ""
     for chuck in response:
         str += chuck.text
+
+    print(str)
 
     return str
 
@@ -70,4 +63,6 @@ while True:
     # proc.displayProcesses()
 """
 
-print(findAlgo(text))
+with open(sys.argv[1]) as f:
+    text = f.read()
+    print(findAlgo(text))
