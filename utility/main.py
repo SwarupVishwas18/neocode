@@ -30,10 +30,7 @@ def extract_features(code):
 
     # 2. Data structures
     data_structures = ["list", "dict", "set", "tuple"]
-    features["data_structure_usage"] = [
-        (tokens["input_ids"] == tokenizer.convert_tokens_to_ids(ds)).sum().item()
-        for ds in data_structures
-    ]
+    features["data_structure_usage"] = [0, 0, 0, 0]
 
     # 3. Function calls
     function_calls = set()
@@ -56,40 +53,43 @@ def extract_features(code):
             features["num_loops"] += 1
         if "if" in line:
             features["num_ifs"] += 1
+        if "= [" in line:
+            features["data_structure_usage"][0] += 1
+
     features["num_comments"] = len(comments)
 
     return features
 
 
 # Example usage
-code = "def my_sort(data):\n  # Bubble sort implementation\n  for i in range(len(data) - 1):\n    for j in range(len(data) - i - 1):\n      if data[j] > data[j + 1]:\n        data[j], data[j + 1] = data[j + 1], data[j]"
+# code = "def my_sort(data):\n  # Bubble sort implementation\n  for i in range(len(data) - 1):\n    for j in range(len(data) - i - 1):\n      if data[j] > data[j + 1]:\n        data[j], data[j + 1] = data[j + 1], data[j]"
 # Load and pre-process your code dataset (replace with your data source)
-data = []
-labels = []
+# data = []
+# labels = []
 
-alldata = {}
-
-
-print(Fore.GREEN)
-for root, dirs, files in os.walk(".", topdown=True):
-    print(root)
-    print(dirs)
-    # print(files)
-    print("--------------------------------")
-
-    for file in files:
-        ext = file.split(".")[-1]
-        if ext == "py":
-            print(file)
+# alldata = {}
 
 
-print(Fore.CYAN)
-with open(sys.argv[1]) as f:
-    data = f.read()
-    print(extract_features(data))
+# print(Fore.GREEN)
+# for root, dirs, files in os.walk(".", topdown=True):
+# print(root)
+# print(dirs)
+# print(files)
+# print("--------------------------------")
 
-    print(Fore.RED)
-    print(fa(data))
+# for file in files:
+#     ext = file.split(".")[-1]
+# if ext == "py":
+#     print(file)
 
 
-print(Fore.WHITE)
+# print(Fore.CYAN)
+# with open(sys.argv[1]) as f:
+#     data = f.read()
+#     print(extract_features(data))
+
+#     print(Fore.RED)
+#     print("Predicted Algorithm is  : " + fa(data))
+
+
+# print(Fore.WHITE)

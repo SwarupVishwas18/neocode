@@ -8,15 +8,7 @@ import os
 
 
 def extract_features(code):
-    """
-    Extracts features from a given code snippet.
 
-    Args:
-      code: String containing the Python code snippet.
-
-    Returns:
-      Dictionary containing extracted features.
-    """
     # Tokenize the code
     tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
     tokens = tokenizer(code, return_tensors="pt")

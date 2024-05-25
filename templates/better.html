@@ -58,50 +58,18 @@
               </li>
             </ul>
           </div>
+
           <div class="suggests">
             <ul class="card-arena">
+              {% for al in alters %}
               <li>
-                Lorem, ipsum dolor.
+                {{ al }}
 
                 <div class="open-img">
                   <img src="./img/share.png" height="20px" alt="" />
                 </div>
               </li>
-              <li>
-                Lorem, ipsum dolor.
-
-                <div class="open-img">
-                  <img src="./img/share.png" height="20px" alt="" />
-                </div>
-              </li>
-              <li>
-                Lorem, ipsum dolor.
-
-                <div class="open-img">
-                  <img src="./img/share.png" height="20px" alt="" />
-                </div>
-              </li>
-              <li>
-                Lorem, ipsum dolor.
-
-                <div class="open-img">
-                  <img src="./img/share.png" height="20px" alt="" />
-                </div>
-              </li>
-              <li>
-                Lorem, ipsum dolor.
-
-                <div class="open-img">
-                  <img src="./img/share.png" height="20px" alt="" />
-                </div>
-              </li>
-              <li>
-                Lorem, ipsum dolor.
-
-                <div class="open-img">
-                  <img src="./img/share.png" height="20px" alt="" />
-                </div>
-              </li>
+              {% endfor %}  
             </ul>
           </div>
         </div>

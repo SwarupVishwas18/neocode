@@ -8,15 +8,7 @@ model = AutoModelForMaskedLM.from_pretrained(model_name)
 
 
 def predict_algorithm(code_snippet):
-    """
-    Predicts an algorithm used in the code snippet using MLM.
-
-    Args:
-      code_snippet: String containing the Python code snippet.
-
-    Returns:
-      String: Predicted algorithm name (might be inaccurate).
-    """
+  
     # Tokenize the code snippet
     inputs = tokenizer(code_snippet, return_tensors="pt")
 

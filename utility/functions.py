@@ -4,15 +4,26 @@ import google.generativeai as genai
 import sys
 
 
-user_data = "AIzaSyBAESdw0y1QQancJ7Bb9ICpc-rUxi2cHrY"
-GOOGLE_API_KEY = user_data
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key="AIzaSyBEMcs_QdejjbBQkOpWQjEPy2IWCm63No0")
 
-print(sys.argv)
 
+config = {"temperature": 0, "top_k": 20, "top_p": 0.9, "max_output_tokens": 500}
+
+safety_settings = [
+    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+    {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+    },
+    {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
+    },
+]
 
 model = genai.GenerativeModel(
-    model_name="gemini-pro",
+    model_name="gemini-pro", generation_config=config, safety_settings=safety_settings
 )
 
 
@@ -56,7 +67,8 @@ while True:
         aboutMe()
     if ch == 5:
         quitMe()
-    # print(Fore.WHITE)
+    # print(Fore
+    .WHITE)
     # proc.displayProcesses()
 """
 
